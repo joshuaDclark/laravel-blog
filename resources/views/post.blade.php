@@ -36,15 +36,11 @@
                             Back to Posts
                         </a>
 
-                        <div class="space-x-2">
-                            <a href="/categories/{{ $post->category->slug }}"
-                                class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
-                                style="font-size: 10px">Techniques</a>
-                            <a href="#"
-                                class="px-3 py-1 border border-red-300 rounded-full text-red-300 text-xs uppercase font-semibold"
-                                style="font-size: 10px">Updates</a>
-                        </div>
-                    </div>
+
+                       <div class="space-x-2">
+                            <x-category-button :category="$post->category"/>
+                       </div> 
+
 
                     <h1 class="font-bold text-3xl lg:text-4xl mb-10">
                         This is a big title and it will look great on two or even three
