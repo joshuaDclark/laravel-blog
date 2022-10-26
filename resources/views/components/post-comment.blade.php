@@ -6,7 +6,7 @@
 
      <div class="flex-shrink-0">
 
-         <img src="https://i.pravatar.cc/60?u={{ $comment->id }}" alt="" width="60" height="60"
+         <img src="https://i.pravatar.cc/60?u={{ $comment->user_id }}" alt="" width="60" height="60"
              class="rounded-xl">
 
      </div>
@@ -18,7 +18,7 @@
 
              <p class="text-xs">
                  Posted
-                 <time>{{ $comment->created_at }}</time>
+                 <time>{{ $comment->created_at->diffForHumans() }}</time>
 
              </p>
 
@@ -27,9 +27,7 @@
 
          <p>
 
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula convallis dolor, at dapibus ligula
-             vehicula in. Phasellus sollicitudin nulla vel libero lacinia, ac tincidunt lacus pellentesque. Nullam nec
-             viverra est.
+             {{ $comment->body }}
 
          </p>
 
