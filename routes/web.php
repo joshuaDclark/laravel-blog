@@ -8,6 +8,20 @@ use Illuminate\Support\Facades\Route;
 
 
 
+Route::get('ping', function () {
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us21'
+    ]);
+
+    $response = $mailchimp->ping->get();
+    print_r($response);
+
+
+});
+
 Route::get('/', [PostController::class, 'index'])->name('home');
 
 
