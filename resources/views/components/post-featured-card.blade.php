@@ -4,7 +4,7 @@
                     class="transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
                     <div class="py-6 px-5">
                         <div>
-                            <img src="/images/illustration-3.png" alt="Blog Post illustration" class="rounded-xl">
+                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="Blog Post illustration" class="rounded-xl">
                         </div>
 
                         <div class="mt-8 flex flex-col justify-between">
@@ -16,7 +16,7 @@
                                 <div class="mt-4">
                                     <h1 class="text-3xl">
 
-                                    <a href="/posts/{{ $post->slug }}"
+                                    <a href="/posts/{{ $post->slug }}">
                                         {{ $post->title }}
 
                                     </a>
