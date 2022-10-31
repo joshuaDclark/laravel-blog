@@ -8,20 +8,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('ping', function () {
-    $mailchimp = new \MailchimpMarketing\ApiClient();
-
-    $mailchimp->setConfig([
-        'apiKey' => config('services.mailchimp.key'),
-        'server' => 'us21'
-    ]);
-
-    $response = $mailchimp->ping->get();
-    print_r($response);
-
-
-});
-
 Route::get('/', [PostController::class, 'index'])->name('home');
 
 
@@ -36,5 +22,5 @@ Route::post('sessions', [SessionsController::class, 'store'])->middleware('guest
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
-Route::get('admin/posts/create', [PostController::class, 'create']);
-
+Route::get('admin/posts/create', [PostController::class, 'create'])->middleware('admin');;
+Route::post('admin/posts/', [PostController::class, 'store'])->middleware('admin');
