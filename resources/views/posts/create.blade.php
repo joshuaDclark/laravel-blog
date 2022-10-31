@@ -2,11 +2,15 @@
 
   <x-panel>
 
-    <section>
+
 
         <form>
 
-            @csrf
+
+
+                @csrf
+
+
 
 
             <x-form.input name="title" />
@@ -17,7 +21,8 @@
 
 
 
-            <x-form.field>
+
+             <x-form.field>
 
                 <x-form.label name="category" />
 
@@ -40,7 +45,6 @@
 
         </form>
 
-    </section>
 
   </x-panel>
 

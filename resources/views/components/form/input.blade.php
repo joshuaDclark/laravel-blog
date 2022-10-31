@@ -10,9 +10,8 @@
         type="{{ $type }}"
         name="{{ $name }}"
         id="{{ $name }}"
-        value="{{ old($name) }}"
+        alue="{{ old($name) }}"
         required
-
         >
 
     <x-form.error name="{{ $name }}" />
