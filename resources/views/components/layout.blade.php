@@ -25,17 +25,25 @@
                 </a>
             </div>
 
-            <div class="mt-8 md:mt-0">
+            <div class="mt-8 md:mt-0 flex items-center">
                 @auth
 
-                    <span class="text-xs font-bold uppercase"> Welcome, {{ auth()->user()->name }}!</span>
+                <x-dropdown>
+                    <x-slot name="trigger">
+                        <button class="text-xs font-bold uppercase"> Welcome, {{ auth()->user()->name }}!</button>
+                    </x-slot>
 
-                    <form method="POST" action="/logout" class="text-xs font-semibold text-blue-500 ml-6">
+                    <x-dropdown-item href="/admin/dashboard">Dashboard</x-dropdown-item>
+                    <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+                    <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
+
+                    <form id="logout-form" method="POST" action="/logout" class="hidden">
                         @csrf
 
                         <button type="submit">Log Out</button>
 
                     </form>
+                </x-dropdown>
 
                 @else
 
@@ -46,9 +54,9 @@
 
 
 
-                <a href="#newsletter" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
+                <!-- <a href="#newsletter" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                     Subscribe for Updates
-                </a>
+                </a> -->
             </div>
         </nav>
 

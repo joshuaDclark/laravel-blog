@@ -1,16 +1,10 @@
 <x-layout>
 
-  <x-panel>
-
+    <x-setting heading="Publish New Post">
 
 
         <form>
-
-
-
                 @csrf
-
-
 
 
             <x-form.input name="title" />
@@ -18,7 +12,6 @@
             <x-form.input name="thumbnail" type="file" />
             <x-form.input name="excerpt" />
             <x-form.input name="body" />
-
 
 
 
@@ -45,7 +38,7 @@
 
         </form>
 
+   </x-setting>
 
-  </x-panel>
 
 </x-layout>
