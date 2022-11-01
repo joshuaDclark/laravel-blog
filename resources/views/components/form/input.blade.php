@@ -10,8 +10,7 @@
         name="{{ $name }}"
         id="{{ $name }}"
         alue="{{ old($name) }}"
-        required
-        {{ $attributes }}
+        {{ $attributes(['value' => old($name)]) }}
 
         >
 
