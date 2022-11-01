@@ -31,7 +31,8 @@ class AdminPostController extends Controller
             'slug' => 'required',
             'excerpt' => ['required', Rule::unique('posts', 'slug')],
             'body' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
+            'category_id' => ['required', Rule::exists('categories', 'id')],
+            'published_at' => 'required'
         ]);
 
         $attributes['user_id'] = auth()->id();
@@ -55,7 +56,8 @@ class AdminPostController extends Controller
             'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
             'excerpt' => 'required',
             'body' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
+            'category_id' => ['required', Rule::exists('categories', 'id')],
+            'published_at' => 'required'
         ]);
 
         if (isset($attributes['thumbnail'])) {
